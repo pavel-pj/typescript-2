@@ -1,7 +1,16 @@
-export function isComplete (param:{ name:string, lessons:string[]}):boolean{
+type callback = (n:number) =>boolean
+export function filter(array:number[], cb:callback): number[]
+{
 
-    if (param.lessons.length>3) return true;
-    return false;
+        const result :number[] = [];
+        for(const item  of array)
+        {
+             if(cb(item)){
+                     result.push(item)
+             }
+        }
+
+        return result;
+
 }
-
-export default isComplete
+export default filter
