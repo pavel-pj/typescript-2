@@ -136,9 +136,17 @@
 
  }
 
+ function formatPrice(value?:number|null|undefined):string
+ {
+     if(value == null || value ==undefined) return "$0.00";
+
+     return `$${value.toFixed(2)}`;
+
+ }
+
 
  function fail():any {
     return "HELLOr"
 }
-export {forEach,fail,isPlainObject,anagrams,lastIndex,
+export {forEach,fail,isPlainObject,anagrams,lastIndex,formatPrice,
     lessonsCount,max,last,uniq,getField, reverse,isTheSamePoint,Point};

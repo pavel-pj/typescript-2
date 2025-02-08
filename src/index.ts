@@ -1,9 +1,12 @@
 //https://github.com/stemmlerjs/simple-typescript-starter/tree/master
- import { lastIndex} from './tsc/forEach'
+ import addAdmin, {  User, Permission } from './tsc/admin'
 
-const str = 'test';
- console.log(lastIndex(str, 't')); // 3
- console.log(lastIndex(str, 'p')); // null
+
+const user: User = { login: 'login1' };
+
+ const admin = addAdmin(user); // { login: 'login1', permission: Permission.READ }
+ console.log(admin)
+
 
 
 
