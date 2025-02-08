@@ -1,7 +1,10 @@
 //https://github.com/stemmlerjs/simple-typescript-starter/tree/master
- import { reverse} from './tsc/forEach'
+ import { lastIndex} from './tsc/forEach'
 
-console.log(reverse([10, 33, 7, 0])); // [0, 7, 33, 10]
+const str = 'test';
+ console.log(lastIndex(str, 't')); // 3
+ console.log(lastIndex(str, 'p')); // null
+
 
 
 

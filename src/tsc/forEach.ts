@@ -94,9 +94,51 @@
     return arr;
 
  }
+ type Point = [number,number,number]
+
+ function isTheSamePoint(point1:Point,point2:Point):boolean{
+
+    if( point1[0]==point2[0] &&
+        point1[1]==point2[1] &&
+        point1[2]==point2[2]
+    ) {
+        return true
+    }
+     return false;
+ }
+
+ function anagrams(word:string, words:string[]):string[]{
+
+    const example = word.split('').sort().join('');
+    const result:string[] = [];
+    for(const item of words) {
+        const checked = item.split('').sort().join('');
+
+        if (example === checked) {
+            result.push(item)
+        }
+    }
+    return result;
+
+ }
+
+ function lastIndex(text:string,char:string): number|null{
+
+      if(!text.includes(char)) return null;
+      const array = text.split('');
+      for (let x = array.length-1;x >= 0; x--){
+          if (array[x]==char){
+              return x;
+          }
+      }
+
+      return null
+
+ }
 
 
  function fail():any {
     return "HELLOr"
 }
-export {forEach,fail,isPlainObject, lessonsCount,max,last,uniq,getField, reverse};
+export {forEach,fail,isPlainObject,anagrams,lastIndex,
+    lessonsCount,max,last,uniq,getField, reverse,isTheSamePoint,Point};
