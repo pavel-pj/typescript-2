@@ -1,9 +1,9 @@
 //https://github.com/stemmlerjs/simple-typescript-starter/tree/master
- import  Car   from './tsc/cars'
+ import   last  from './djn/last'
 
-const porsche = new Car(4, 'red', true, 20);
-console.log(porsche.calcFuelNeeded(200)); // 40
-
+ console.log(last([])); // null
+console.log(last([3, 2])); // 2
+console.log(last(['code-basics', 'hexlet'])); // hexlet
 
 
 
