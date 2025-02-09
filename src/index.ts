@@ -1,11 +1,8 @@
 //https://github.com/stemmlerjs/simple-typescript-starter/tree/master
- import addAdmin, {  User, Permission } from './tsc/admin'
+ import File  from './tsc/file'
 
-
-const user: User = { login: 'login1' };
-
- const admin = addAdmin(user); // { login: 'login1', permission: Permission.READ }
- console.log(admin)
+const file = new File({ name: 'open-world.jpeg', size: 1000 });
+console.log(file.toString()); // open-world.jpeg (1000 bytes)
 
 
 
