@@ -1,4 +1,4 @@
-type FileObject = {
+type fileOptions = {
     name:string,
     size:number
 }
@@ -6,14 +6,20 @@ type FileObject = {
 class File {
     name:string;
     size:number;
-
-     constructor (object : FileObject){
+    private isCopy: boolean;
+     constructor (object : fileOptions ){
          this.name = object.name;
          this.size = object.size;
+         (object instanceof File) ? this.isCopy = true : this.isCopy = false;
+
+
      }
 
     toString() {
-         return this.name +" ("+ String (this.size) + " bytes)"
+         let copy ='';
+        ( this.isCopy) ? copy = '(copy) ' : '';
+
+         return copy + this.name +" ("+ String (this.size) + " bytes)"
     }
 
 }
