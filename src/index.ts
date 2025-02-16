@@ -1,21 +1,5 @@
 //https://github.com/stemmlerjs/simple-typescript-starter/tree/master
-import { applyTransactions, Wallet } from './djn/wallet';
+import form from './djn/form';
 
-const wallet: Wallet = {
-    balance: 10,
-    transactions: [
-        {
-            apply: (amount: number) => amount + 10,
-        },
-        {
-            apply: () => {
-                throw new Error('Error');
-            },
-        },
-        {
-            apply: (amount: number) => amount + 30,
-        },
-    ],
-};
-
-console.log(applyTransactions(wallet)) // 1
+console.log(form.name.validator(form.name.value)); // true
+console.log(form.age.validator(form.age.value)); // false
