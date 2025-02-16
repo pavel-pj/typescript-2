@@ -1,29 +1,28 @@
 
 type  DataState = {
     status: LoadingStatus,
-    } & {
-
-    error: string
-}& {
-    
-    data: number
+    error?: Error
+    data?: number
 }
 
 enum LoadingStatus {
-    Loading,
-    Error,
-    Success
+    Loading = 'loading...',
+    Error = 'error',
+    Success = 'seccess'
 }
 
-function handleData(data: DataState):string {
-    console.log(data)
-    if (data.status == LoadingStatus.Loading) return 'loading...';
-    if (data.status == LoadingStatus.Error) {
-
-        return data.error;
+function handleData(data: DataState):string|unknown  {
+    if (data.status == LoadingStatus.Loading) {
+        return LoadingStatus.Loading
     }
+    else if (data.error) {
+        return data.error.message as string
+    }
+    else if (data.data) {
+        return String(data.data)
+    }
+    return 'unknown';
 
-    return "YES"
 
 }
 

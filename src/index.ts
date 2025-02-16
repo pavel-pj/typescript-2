@@ -1,7 +1,21 @@
 //https://github.com/stemmlerjs/simple-typescript-starter/tree/master
- import {User}  from './djn/interface'
+import { applyTransactions, Wallet } from './djn/wallet';
 
+const wallet: Wallet = {
+    balance: 10,
+    transactions: [
+        {
+            apply: (amount: number) => amount + 10,
+        },
+        {
+            apply: () => {
+                throw new Error('Error');
+            },
+        },
+        {
+            apply: (amount: number) => amount + 30,
+        },
+    ],
+};
 
-const user: User<string,number> = new User ("Вася","Из Москв", 45);
-
-console.log(user.getName() + " " + user.getAge())
+console.log(applyTransactions(wallet)) // 1
